@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: cornsilk;
+      text-align: center;
+      font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      padding-top: 50px;
+      border: 15px solid linen;
+      box-sizing: border-box;
+      margin: 0;
+      min-height: 100vh;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    nav a.active {
+      color: crimson;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Canvas background -->
+  <canvas id="heart"></canvas>
+  <script src="./script.js"></script>
+
+  <!-- Music -->
+  <audio autoplay loop>
+    <source src="hbd.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Navigation bar -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="display.html">Display</a></li>
+      <li><a href="gallery.html" class="active">Surprise!</a></li>
+    </ul>
+  </nav>
+
+</body>
+</html>
