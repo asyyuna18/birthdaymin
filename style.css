@@ -1,56 +1,39 @@
+/* Ensure full screen coverage */
 html, body {
-    height: 100%;
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
+/* Body styling */
 body {
-    background-color:snow;
+    background-color: snow;
     text-align: center;
-    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, 
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
         "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     padding-top: 50px;
     border: 10px solid #e6ca4e46;
     box-sizing: border-box;
-    min-height: 100%;
 }
 
+/* Headings */
 h1 {
     color: black;
     font-family: 'Times New Roman', Times, serif;
     font-style: oblique;
 }
 
-#envelope {
-    cursor: pointer;
-}
-
-#envelope img {
-    max-width: 150px;
-    height: auto;
-}
-
-#letter {
-    display: none; 
-    background-color: floralwhite;
-    color: black;
-    font-style: italic;
-    text-align: justify;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 
-        'Lucida Sans', Arial, sans-serif;
-    margin: 20px auto;
-    padding: 20px;
-    width: 80%;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    border: 2px solid #ffd1dc;
-}
-
+/* Navigation bar */
 nav {
     background-color: #bfb37e6b;
-    border-bottom: 2px solid #ffe3b351;
+    border-bottom: 1px solid #ffe3b351;
     position: sticky;
     top: 0;
     z-index: 1000;
+    width: 100%;
 }
 
 nav ul {
@@ -58,6 +41,7 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
@@ -70,7 +54,8 @@ nav ul li a {
     padding: 14px 20px;
     text-decoration: none;
     font-weight: bold;
-    color:white;
+    color: white;
+    font-size:smaller;
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -81,5 +66,59 @@ nav ul li a:hover {
 
 nav ul li a.active {
     background-color: #b5b07b;
-    border-bottom: 3px solid #ff85a2;
+    border-bottom: 3px solid #33272a;
+}
+
+/* Envelope */
+#envelope {
+    cursor: pointer;
+}
+
+#envelope img {
+    max-width: 100%;
+    height: auto;
+    max-width: 150px;
+}
+
+/* Letter */
+#letter {
+    display: none;
+    background-color: floralwhite;
+    color: black;
+    font-style: italic;
+    text-align: justify;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+        'Lucida Sans', Arial, sans-serif;
+    margin: 20px auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    border: 2px solid #ffd1dc;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+/* Star Container */
+#star-container {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+}
+
+/* Star animation */
+.star {
+    position: absolute;
+    top: -20px;
+    font-size: 24px;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(120px);
+        opacity: 0;
+    }
 }
