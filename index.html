@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    body {
+        background-color: cornsilk;
+        text-align: center;
+        font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        padding-top: 50px;
+        border: 15px solid linen;
+        box-sizing: border-box;
+        margin: 0;
+        min-height: 100vh;
+    }
+
+    #star-container {
+        position: relative;
+        width: 100%;
+        height: 100px; /* star area */
+        overflow: hidden;
+    }
+
+    .star {
+        position: absolute;
+        top: -20px;
+        font-size: 24px;
+        animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+        to {
+            transform: translateY(120px);
+            opacity: 0;
+        }
+    }
+
+    #envelope {
+        cursor: pointer;
+    }
+
+    #envelope img {
+        max-width: 150px;
+        height: auto;
+    }
+
+    #letter {
+        display: none;
+        background-color: floralwhite;
+        color: black;
+        font-style: italic;
+        text-align: justify;
+        font-family: 'Trebuchet MS', Arial, sans-serif;
+        margin: 20px auto;
+        padding: 20px;
+        width: 80%;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        border: 2px solid #ffd1dc;
+    }
+</style>
+</head>
+<body>
+
+    <audio autoplay loop>
+        <source src="hbd.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="display.html">Display</a></li>
+            <li><a href="surprise.html">Surprise?</a></li>
+            <li><a href="thanks.html">Thankyou</a></li>
+        </ul>
+    </nav>
+    
+    <h1>happy birthday akmal 'amin ❤︎</h1>
+    <p>wishing you joy, love, and cake!</p>
+
+    <div id="star-container"></div>
+
+    <div id="envelope" onclick="openLetter()">
+        <img src="envelope.png" alt="tekan la hehe">
+        <p>Click to open</p>
+    </div>
+
+    <div id="letter">
+        <p>
+            awakkk happy 26th birthday! ♡₊˚・₊✧⋆⭒˚｡⋆ <br>
+            i'm sorry this time i didn't give you a handwritten letter, but i made this website for you instead HEHE <br>
+            i hope when you open this, our paths still crossing and will always cross! <br>
+            i truly wish you nothing but the best; happiness, success, and all the good things life can offer.
+        </p>
+    </div>
+
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <!-- JavaScript for Stars & Letter -->
+    <script>
+        const starContainer = document.getElementById('star-container');
+        const starSymbol = '✦'; // Change this to any star/emoji/symbol you like
+
+        function createStar() {
+            const star = document.createElement('span');
+            star.classList.add('star');
+            star.textContent = starSymbol;
+            star.style.left = Math.random() * 100 + '%';
+            star.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            starContainer.appendChild(star);
+
+            setTimeout(() => star.remove(), 4000);
+        }
+
+        // Start falling stars
+        let starInterval = setInterval(createStar, 300);
+
+        function openLetter() {
+
+            document.getElementById("envelope").style.display = "none";
+            document.getElementById("letter").style.display = "block";
+
+            // Confetti burst 🎉
+            confetti({
+                particleCount: 200,
+                spread: 100,
+                origin: { y: 0.6 }
+            });
+        }
+    </script>
+
+</body>
+</html>
